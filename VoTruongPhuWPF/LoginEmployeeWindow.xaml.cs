@@ -15,13 +15,23 @@ using System.Windows.Shapes;
 namespace VoTruongPhuWPF
 {
     /// <summary>
-    /// Interaction logic for LoginCustomerWindow.xaml
+    /// Interaction logic for LoginEmployeeWindow.xaml
     /// </summary>
-    public partial class LoginCustomerWindow : Window
+    public partial class LoginEmployeeWindow : Window
     {
-        public LoginCustomerWindow()
+        public LoginEmployeeWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
@@ -29,11 +39,6 @@ namespace VoTruongPhuWPF
             WelcomeWindow welcomeWindow = new WelcomeWindow();
             welcomeWindow.Show();
             this.Close();
-        }
-
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

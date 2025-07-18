@@ -33,7 +33,9 @@ namespace VoTruongPhuWPF
 
         private void btnEmployee_click(object sender, RoutedEventArgs e)
         {
-
+            LoginEmployeeWindow loginEmployeeWindow = new LoginEmployeeWindow();
+            loginEmployeeWindow.Show();
+            this.Close();
         }
     }
 }
