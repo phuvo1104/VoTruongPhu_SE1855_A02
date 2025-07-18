@@ -8,6 +8,11 @@
         Title="LoginCustomerWindow" Height="450" Width="800">
     <Grid>
         <Label Content="WELCOME CUSTOMER" HorizontalAlignment="Left" Margin="260,104,0,0" VerticalAlignment="Top" Height="40" Width="230" FontSize="20"/>
+        <Label Content="PHONE:" HorizontalAlignment="Left" Margin="206,148,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TxtPhone" HorizontalAlignment="Left" Margin="295,154,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="245" Height="50" FontSize="18"/>
+        <Button x:Name="BtnLogin" Content="LOGIN" HorizontalAlignment="Left" Margin="285,224,0,0" VerticalAlignment="Top" Height="60" Width="65" Click="BtnLogin_Click"/>
+        <Button x:Name="BtnExit" Content="EXIT" HorizontalAlignment="Left" Margin="395,224,0,0" VerticalAlignment="Top"  Height="60" Width="77" Click="BtnExit_Click"/>
+
 
     </Grid>
 </Window>

@@ -26,7 +26,9 @@ namespace VoTruongPhuWPF
 
         private void btnCustomer_click(object sender, RoutedEventArgs e)
         {
-
+            LoginCustomerWindow loginCustomerWindow = new LoginCustomerWindow();
+            loginCustomerWindow.Show();
+            this.Close();
         }
 
         private void btnEmployee_click(object sender, RoutedEventArgs e)
