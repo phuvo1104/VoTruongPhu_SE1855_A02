@@ -46,5 +46,10 @@ namespace Services
         {
             return _productRepository.UpProduct(product);
         }
+
+        public List<Product> GetProducts()
+        {
+            return _productRepository.GetAllProducts();
+        }
     }
 }

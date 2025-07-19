@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace VoTruongPhuWPF
     /// </summary>
     public partial class LoginCustomerWindow : Window
     {
+        private readonly ICustomerService _customerService = new CustomerService();
+
         public LoginCustomerWindow()
         {
             InitializeComponent();
@@ -33,7 +36,24 @@ namespace VoTruongPhuWPF
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            string phone = TxtPhone.Text.Trim();
+            if (string.IsNullOrEmpty(phone))
+            {
+                MessageBox.Show("Please enter your phone number.", "Login", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
+            var customer = _customerService.Login(phone);
+            if (customer != null)
+            {
+                CustomerMainWindow mainWindow = new CustomerMainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Login failed. Invalid phone number.", "Login", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

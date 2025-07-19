@@ -1,0 +1,76 @@
+﻿<Window x:Class="VoTruongPhuWPF.ProductAndCategoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Products and Categories Management" Height="600" Width="1100"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- TreeView danh mục -->
+        <TreeView x:Name="tvCategory" SelectedItemChanged="tvCategory_SelectedItemChanged"/>
+
+        <!-- Khu vực phải: sản phẩm và form -->
+        <StackPanel Grid.Column="1" Margin="10,0,0,0">
+
+            <!-- Danh sách sản phẩm -->
+            <ListView x:Name="lvProduct" Height="220" SelectionChanged="lvProduct_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding ProductId}" Width="50"/>
+                        <GridViewColumn Header="Product Name" DisplayMemberBinding="{Binding ProductName}" Width="150"/>
+                        <GridViewColumn Header="Supplier Id" DisplayMemberBinding="{Binding SupplierId}" Width="80"/>
+                        <GridViewColumn Header="Category Id" DisplayMemberBinding="{Binding CategoryId}" Width="80"/>
+                        <GridViewColumn Header="Quantity/Unit" DisplayMemberBinding="{Binding QuantityPerUnit}" Width="120"/>
+                        <GridViewColumn Header="Unit Price" DisplayMemberBinding="{Binding UnitPrice}" Width="80"/>
+                        <GridViewColumn Header="In Stock" DisplayMemberBinding="{Binding UnitsInStock}" Width="80"/>
+                        <GridViewColumn Header="On Order" DisplayMemberBinding="{Binding UnitsOnOrder}" Width="80"/>
+                        <GridViewColumn Header="Reorder Level" DisplayMemberBinding="{Binding ReorderLevel}" Width="90"/>
+                        <GridViewColumn Header="Discontinued" DisplayMemberBinding="{Binding Discontinued}" Width="90"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <!-- Form nhập liệu -->
+            <UniformGrid Columns="2" Rows="6" Margin="0,10,0,0">
+                <TextBlock Text="Product Name"/>
+                <TextBox x:Name="txtName"/>
+
+                <TextBlock Text="Supplier Id"/>
+                <TextBox x:Name="txtSupplierId"/>
+
+                <TextBlock Text="Category Id"/>
+                <TextBox x:Name="txtCategoryId"/>
+
+                <TextBlock Text="Quantity/Unit"/>
+                <TextBox x:Name="txtQuantityPerUnit"/>
+
+                <TextBlock Text="Unit Price"/>
+                <TextBox x:Name="txtPrice"/>
+
+                <TextBlock Text="In Stock"/>
+                <TextBox x:Name="txtQuantity"/>
+
+                <TextBlock Text="On Order"/>
+                <TextBox x:Name="txtUnitsOnOrder"/>
+
+                <TextBlock Text="Reorder Level"/>
+                <TextBox x:Name="txtReorderLevel"/>
+
+                <TextBlock Text="Discontinued"/>
+                <CheckBox x:Name="chkDiscontinued"/>
+            </UniformGrid>
+
+            <!-- Nút -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <Button x:Name="btnClear" Content="Clear" Width="80" Click="btnClear_Click"/>
+                <Button x:Name="btnSave" Content="Save" Width="80" Margin="5" Click="btnSave_Click"/>
+                <Button x:Name="btnDelete" Content="Delete" Width="80" Click="btnDelete_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

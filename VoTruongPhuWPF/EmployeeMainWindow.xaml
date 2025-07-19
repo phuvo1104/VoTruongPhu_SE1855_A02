@@ -1,0 +1,19 @@
+﻿<Window x:Class="VoTruongPhuWPF.EmployeeMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VoTruongPhuWPF"
+        mc:Ignorable="d"
+        Title="EmployeeMainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Welcome Employee" HorizontalAlignment="Left" Margin="280,94,0,0" VerticalAlignment="Top" Height="55" Width="255" FontSize="18"/>
+        <Button x:Name="BtnManageCustomer" Content="Manage customer" HorizontalAlignment="Left" Margin="275,149,0,0" VerticalAlignment="Top" Width="175" Click="BtnManageCustomer_Click"/>
+        <Button x:Name="BtnManageProduce" Content="Manage produce and category" HorizontalAlignment="Left" Margin="275,179,0,0" VerticalAlignment="Top" Width="175" Click="BtnManageProduce_Click"/>
+        <Button x:Name="BtnManageProfile" Content="Manage profile" HorizontalAlignment="Left" Margin="275,204,0,0" VerticalAlignment="Top" Width="175" Click="BtnManageProfile_Click"/>
+        <Button x:Name="BtnProcessOrders" Content="process orders" HorizontalAlignment="Left" Margin="275,234,0,0" VerticalAlignment="Top" Width="175" Click="BtnProcessOrders_Click"/>
+        <Button x:Name="BtnReport" Content="report" HorizontalAlignment="Left" Margin="275,264,0,0" VerticalAlignment="Top" Width="175" Click="BtnReport_Click"/>
+        <Button x:Name="BtnLogout"    Content="logout" HorizontalAlignment="Left" Margin="275,294,0,0" VerticalAlignment="Top" Width="175" Click="BtnLogout_Click"/>
+
+    </Grid>
+</Window>
