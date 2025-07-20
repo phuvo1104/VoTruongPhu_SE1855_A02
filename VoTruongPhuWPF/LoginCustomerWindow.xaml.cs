@@ -46,7 +46,7 @@ namespace VoTruongPhuWPF
             var customer = _customerService.Login(phone);
             if (customer != null)
             {
-                CustomerMainWindow mainWindow = new CustomerMainWindow();
+                CustomerMainWindow mainWindow = new CustomerMainWindow(customer.CustomerId);
                 mainWindow.Show();
                 this.Close();
             }

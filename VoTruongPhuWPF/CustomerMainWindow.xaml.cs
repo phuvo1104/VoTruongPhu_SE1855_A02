@@ -36,25 +36,25 @@ namespace VoTruongPhuWPF
         private readonly OrderService _orderService = new OrderService();
         private readonly CustomerService _customerService = new CustomerService(); // Thêm trường này
 
-        public CustomerMainWindow()
+        public CustomerMainWindow(int customerId)
         {
             InitializeComponent();
-            LoadCustomerData();
+            LoadCustomerData(customerId);
             LoadOrderData();
         }
 
-        private void LoadCustomerData()
+     
+
+        private void LoadCustomerData(int customerId)
         {
-            // Replace with actual customer retrieval logic
-            _currentCustomer = new Customer
+            _currentCustomer = _customerService.SearchCustomerById(customerId);
+
+            if (_currentCustomer == null)
             {
-                CustomerId = 1, // Assuming CustomerId is int in your model
-                CompanyName = "Acme Corp",
-                ContactName = "John Doe",
-                ContactTitle = "Manager",
-                Address = "123 Main St",
-                Phone = "555-1234"
-            };
+                MessageBox.Show("Customer not found.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
+                return;
+            }
 
             TxtCustomerId.Text = _currentCustomer.CustomerId.ToString();
             TxtCustomerId.IsEnabled = false; // Disable editing of CustomerId
@@ -120,6 +120,22 @@ namespace VoTruongPhuWPF
             WelcomeWindow welcomeWindow = new WelcomeWindow();
             welcomeWindow.Show();
             this.Close();
+        }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string phone = TxtPhone.Text;
+            var customer = _customerService.Login(phone);
+            if (customer != null)
+            {
+                CustomerMainWindow mainWindow = new CustomerMainWindow(customer.CustomerId);
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Login failed. Please check your phone number.", "Login Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

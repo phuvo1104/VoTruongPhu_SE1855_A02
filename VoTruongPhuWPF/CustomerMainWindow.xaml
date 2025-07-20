@@ -23,12 +23,12 @@
         <Label Content="Contact Title:" HorizontalAlignment="Left" Margin="20,279,0,0" VerticalAlignment="Top"/>
         <Label Content="address:" HorizontalAlignment="Left" Margin="22,313,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.658,2.12"/>
         <Label Content="phone:" HorizontalAlignment="Left" Margin="22,338,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.132,0.194"/>
-        <TextBox x:Name="TxtCustomerId" HorizontalAlignment="Left" Margin="150,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="TxtCompanyName" HorizontalAlignment="Left" Margin="150,229,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TxtContactName" HorizontalAlignment="Left" Margin="150,259,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TxtContactTitle" HorizontalAlignment="Left" Margin="150,286,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TxtAddress" HorizontalAlignment="Left" Margin="150,319,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TxtPhone" HorizontalAlignment="Left" Margin="150,346,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TxtCustomerId" HorizontalAlignment="Left" Margin="150,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="500" IsReadOnly="True"/>
+        <TextBox x:Name="TxtCompanyName" HorizontalAlignment="Left" Margin="150,229,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="500"/>
+        <TextBox x:Name="TxtContactName" HorizontalAlignment="Left" Margin="150,259,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="500"/>
+        <TextBox x:Name="TxtContactTitle" HorizontalAlignment="Left" Margin="150,286,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="500"/>
+        <TextBox x:Name="TxtAddress" HorizontalAlignment="Left" Margin="150,319,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="500"/>
+        <TextBox x:Name="TxtPhone" HorizontalAlignment="Left" Margin="150,346,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="500"/>
         <Button x:Name="BtnUpdateProfile" Content="Update Profile" HorizontalAlignment="Left" Margin="45,384,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <Button x:Name="BtnLogou" Content="logout" HorizontalAlignment="Left" Margin="730,399,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.893,-0.499" Click="BtnLogou_Click"/>
     </Grid>
