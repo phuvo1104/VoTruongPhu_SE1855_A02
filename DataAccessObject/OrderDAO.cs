@@ -2,67 +2,81 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
     public class OrderDAO
     {
-        LucySalesDataContext context = new LucySalesDataContext();
+        // Kết nối đến cơ sở dữ liệu
+        private readonly LucySalesDataContext context = new LucySalesDataContext();
 
+        // ============================================
+        // 1. Lấy toàn bộ đơn hàng
+        // ============================================
         public List<Order> GetOrders()
         {
             return context.Orders.ToList();
         }
 
+        // ============================================
+        // 2. Thêm đơn hàng mới
+        // ============================================
         public bool AddOrder(Order order)
         {
             try
             {
-                context.Orders.Add(order);
-                context.SaveChanges();
+                context.Orders.Add(order);      // Thêm đơn hàng vào DbSet
+                context.SaveChanges();          // Lưu thay đổi xuống database
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error adding order: {ex.Message}");
+                Console.WriteLine($"❌ Lỗi khi thêm đơn hàng: {ex.Message}");
                 return false;
             }
         }
 
+        // ============================================
+        // 3. Xoá đơn hàng
+        // ============================================
         public bool DelOrder(Order order)
         {
             try
             {
-                context.Orders.Remove(order);
-                context.SaveChanges();
+                context.Orders.Remove(order);   // Xoá khỏi DbSet
+                context.SaveChanges();          // Lưu thay đổi
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error deleting order: {ex.Message}");
+                Console.WriteLine($"❌ Lỗi khi xoá đơn hàng: {ex.Message}");
                 return false;
             }
         }
 
+        // ============================================
+        // 4. Cập nhật đơn hàng
+        // ============================================
         public bool UpOrder(Order order)
         {
             try
             {
-                var existingOrder = context.Orders.Find(order.OrderId);
-                if (existingOrder != null)
+                var eOrder = context.Orders.Find(order.OrderId);  // Tìm đơn hàng theo ID
+                if (eOrder != null)
                 {
-                    existingOrder.CustomerId = order.CustomerId;
-                    existingOrder.EmployeeId = order.EmployeeId;
-                    existingOrder.OrderDate = order.OrderDate;
-                    context.SaveChanges();
+                    // Cập nhật thông tin
+                    eOrder.CustomerId = order.CustomerId;
+                    eOrder.EmployeeId = order.EmployeeId;
+                    eOrder.OrderDate = order.OrderDate;
+
+                    context.SaveChanges();  // Lưu xuống CSDL
+                    return true;
                 }
-                return true;
+                return false;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error updating order: {ex.Message}");
+                Console.WriteLine($"❌ Lỗi khi cập nhật đơn hàng: {ex.Message}");
                 return false;
             }
         }

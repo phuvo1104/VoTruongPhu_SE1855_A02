@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VoTruongPhuWPF"
         mc:Ignorable="d"
-        Title="CustomerMainWindow" Height="450" Width="800">
+        Title="VoTruongPhuWPF.CustomerMainWindow" Height="450" Width="800">
     <Grid>
         <ListView x:Name="OrdersListView" SelectionChanged="ListView_SelectionChanged" Margin="0,15,0,250">
             <ListView.View>
