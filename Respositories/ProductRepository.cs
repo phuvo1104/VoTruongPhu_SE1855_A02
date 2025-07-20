@@ -9,34 +9,34 @@ namespace Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        ProductDAO pd = new ProductDAO();
+        ProductDAO ProductDAO = new ProductDAO();
         public bool AddProduct(Product product)
         {
-            return pd.AddProduct(product);
+            return ProductDAO.AddProduct(product);
         }
 
         public Product? GetProductById(int productId)
         {
-            return pd.GetProductById(productId);
+            return ProductDAO.GetProductById(productId);
         }
         public bool DelProduct(int productId)
         {
-            return pd.DelProduct(productId);
+            return ProductDAO.DelProduct(productId);
         }
 
         public List<Product> GetAllProducts()
         {
-            return pd.GetAllProducts();
+            return ProductDAO.GetAllProducts();
         }
 
         public List<Product> GetProductByCategoryId(int categoryId)
         {
-            return pd.GetProductByCategoryId(categoryId);
+            return ProductDAO.GetProductByCategoryId(categoryId);
         }
 
         public bool UpProduct(Product product)
         {
-            return pd.UpProduct(product);
+            return ProductDAO.UpProduct(product);
         }
     }
 }

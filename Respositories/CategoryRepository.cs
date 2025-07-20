@@ -15,7 +15,7 @@ namespace Repositories
     public class CategoryRepository : ICategoryRepository
     {
         // Khởi tạo đối tượng DAO để thao tác dữ liệu
-        CategoryDAO cd = new CategoryDAO();
+        CategoryDAO CategoryDAO = new CategoryDAO();
 
         /// <summary>
         /// Trả về danh sách tất cả các danh mục sản phẩm từ DAO
@@ -23,7 +23,7 @@ namespace Repositories
         /// <returns>List<Category></returns>
         public List<Category> GetCategories()
         {
-            return cd.GetCategories();
+            return CategoryDAO.GetCategories();
         }
     }
 }

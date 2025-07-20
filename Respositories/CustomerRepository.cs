@@ -15,7 +15,7 @@ namespace Repositories
     public class CustomerRepository : ICustomerRepository
     {
         // DAO thao tác trực tiếp với cơ sở dữ liệu
-        private readonly CustomerDAO cd = new CustomerDAO();
+        private readonly CustomerDAO CustomerDAO = new CustomerDAO();
 
         /// <summary>
         /// Lấy danh sách toàn bộ khách hàng từ cơ sở dữ liệu.
@@ -23,7 +23,7 @@ namespace Repositories
         /// <returns>List<Customer></returns>
         public List<Customer> GetCustomers()
         {
-            return cd.GetCustomers();
+            return CustomerDAO.GetCustomers();
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Repositories
         /// <returns>true nếu thành công, ngược lại false.</returns>
         public bool AddCustomer(Customer newCustomer)
         {
-            return cd.AddCustomer(newCustomer);
+            return CustomerDAO.AddCustomer(newCustomer);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Repositories
         /// <returns>true nếu thành công, ngược lại false.</returns>
         public bool UpCustomer(Customer updatedCustomer)
         {
-            return cd.UpCustomer(updatedCustomer);
+            return CustomerDAO.UpCustomer(updatedCustomer);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Repositories
         /// <returns>true nếu thành công, ngược lại false.</returns>
         public bool DelCustomer(int customerId)
         {
-            return cd.DelCustomer(customerId);
+            return CustomerDAO.DelCustomer(customerId);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Repositories
         /// <returns>Đối tượng Customer nếu tìm thấy, ngược lại null.</returns>
         public Customer? SearchCustomerById(int customerId)
         {
-            return cd.SearchCustomerById(customerId);
+            return CustomerDAO.SearchCustomerById(customerId);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Repositories
         /// <returns>Đối tượng Customer nếu đúng, ngược lại null.</returns>
         public Customer? Login(string phone)
         {
-            return cd.Login(phone);
+            return CustomerDAO.Login(phone);
         }
     }
 }

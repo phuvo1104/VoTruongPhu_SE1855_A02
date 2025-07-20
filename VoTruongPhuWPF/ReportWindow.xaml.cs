@@ -28,19 +28,37 @@ namespace VoTruongPhuWPF
 
         private void GenerateReport_Click(object sender, RoutedEventArgs e)
         {
-            // Example: Generate dummy data for demonstration
             var start = dpStartDate.SelectedDate ?? DateTime.Now.AddDays(-7);
             var end = dpEndDate.SelectedDate ?? DateTime.Now;
+
+            // Use your OrderService to get all orders in the date range
+            var orderService = new OrderService();
+            var orders = orderService.GetOrders()
+                .Where(o => o.OrderDate >= start && o.OrderDate <= end)
+                .ToList();
+
+            decimal totalSales = 0;
+            int orderCount = orders.Count;
+            foreach (var order in orders)
+            {
+                if (order.OrderDetails != null)
+                {
+                    totalSales += order.OrderDetails.Sum(od => od.UnitPrice * od.Quantity);
+                }
+            }
+            decimal averageOrder = orderCount > 0 ? totalSales / orderCount : 0;
+
             var reportData = new List<SaleReportItem>
             {
                 new SaleReportItem
                 {
                     Period = $"{start:yyyy-MM-dd} - {end:yyyy-MM-dd}",
-                    TotalSales = 12345.67m,
-                    OrderCount = 42,
-                    AverageOrder = 293.94m
+                    TotalSales = totalSales,
+                    OrderCount = orderCount,
+                    AverageOrder = averageOrder
                 }
             };
+
             lvSaleReport.ItemsSource = reportData;
         }
 

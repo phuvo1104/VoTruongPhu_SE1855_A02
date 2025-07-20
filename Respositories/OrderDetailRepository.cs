@@ -9,29 +9,29 @@ namespace Repositories
 {
     public class OrderDetailRepository : IOrderDetailRepository
     {
-        OrderDetailDAO od = new OrderDetailDAO();
+        OrderDetailDAO OrderDetailDAO = new OrderDetailDAO();
         public bool AddOrderDetail(OrderDetail orderDetail)
         {
-            return od.AddOrderDetail(orderDetail);
+            return OrderDetailDAO.AddOrderDetail(orderDetail);
         }
         public List<OrderDetail> GetOrderDetailsByOrderId(int orderId)
         {
-            return od.GetOrderDetailsByOrderId(orderId);
+            return OrderDetailDAO.GetOrderDetailsByOrderId(orderId);
         }
 
         public bool DelOrderDetail(int orderId, int productId)
         {
-            return od.DelOrderDetail(orderId, productId);
+            return OrderDetailDAO.DelOrderDetail(orderId, productId);
         }
 
         public List<OrderDetail> GetOrderDetails()
         {
-            return od.GetOrderDetails();
+            return OrderDetailDAO.GetOrderDetails();
         }
 
         public bool UpOrderDetail(OrderDetail orderDetail)
         {
-            return od.UpOrderDetail(orderDetail);
+            return OrderDetailDAO.UpOrderDetail(orderDetail);
         }
     }
 }

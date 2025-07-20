@@ -15,7 +15,7 @@ namespace Repositories
     public class EmployeeRepository : IEmployeeRepository
     {
         // DAO tương tác trực tiếp với cơ sở dữ liệu
-        private readonly EmployeeDAO ed = new EmployeeDAO();
+        private readonly EmployeeDAO EmployeeDAO = new EmployeeDAO();
 
         /// <summary>
         /// Xác thực thông tin đăng nhập của nhân viên.
@@ -25,7 +25,7 @@ namespace Repositories
         /// <returns>Employee nếu hợp lệ, ngược lại null.</returns>
         public Employee? Login(string username, string password)
         {
-            return ed.Login(username, password);
+            return EmployeeDAO.Login(username, password);
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Repositories
         /// <returns>List<Employee></returns>
         public List<Employee> GetEmployees()
         {
-            return ed.GetEmployees();
+            return EmployeeDAO.GetEmployees();
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Repositories
         /// <returns>True nếu thành công, false nếu thất bại.</returns>
         public bool AddEmployee(Employee employee)
         {
-            return ed.AddEmployee(employee);
+            return EmployeeDAO.AddEmployee(employee);
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Repositories
         /// <returns>True nếu thành công, false nếu thất bại.</returns>
         public bool UpEmployee(Employee employee)
         {
-            return ed.UpEmployee(employee);
+            return EmployeeDAO.UpEmployee(employee);
         }
 
         /// <summary>
@@ -67,10 +67,10 @@ namespace Repositories
             try
             {
                 // Kiểm tra sự tồn tại của nhân viên trước khi xoá
-                var employee = ed.GetEmployees().FirstOrDefault(e => e.EmployeeId == employeeId);
+                var employee = EmployeeDAO.GetEmployees().FirstOrDefault(e => e.EmployeeId == employeeId);
                 if (employee != null)
                 {
-                    return ed.DelEmployee(employeeId);
+                    return EmployeeDAO.DelEmployee(employeeId);
                 }
                 return false;
             }

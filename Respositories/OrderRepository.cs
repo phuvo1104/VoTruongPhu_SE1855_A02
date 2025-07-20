@@ -9,26 +9,26 @@ namespace Repositories
 {
     public class OrderRepository : IOrderRepository
     {
-        OrderDAO od = new OrderDAO();
+        OrderDAO OrderDAO = new OrderDAO();
 
         public bool AddOrder(Order order)
         {
-            return od.AddOrder(order);
+            return OrderDAO.AddOrder(order);
         }
 
         public bool DelOrder(Order order)
         {
-            return od.DelOrder(order);
+            return OrderDAO.DelOrder(order);
         }
 
         public List<Order> GetOrders()
         {
-            return od.GetOrders();
+            return OrderDAO.GetOrders();
         }
 
         public bool UpOrder(Order order)
         {
-            return od.UpOrder(order);
+            return OrderDAO.UpOrder(order);
         }
     }
 }
