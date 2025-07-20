@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VoTruongPhuWPF"
         mc:Ignorable="d"
-        Title="EmployeeMainWindow" Height="450" Width="800">
+        Title="VoTruongPhuWPF.EmployeeMainWindow" Height="450" Width="800">
     <Grid>
         <Label Content="Welcome Employee" HorizontalAlignment="Left" Margin="280,94,0,0" VerticalAlignment="Top" Height="55" Width="255" FontSize="18"/>
         <Button x:Name="BtnManageCustomer" Content="Manage customer" HorizontalAlignment="Left" Margin="275,149,0,0" VerticalAlignment="Top" Width="175" Click="BtnManageCustomer_Click"/>
